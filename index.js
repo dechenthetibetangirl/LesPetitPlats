@@ -199,28 +199,22 @@ const dataFactory = () => {
      * @param  {String} search valeur passée dans la barre de recherche
      * @returns {Array} renvoie le tableau resultSearch contenant les recettes correspondant à la recherche
      */
-    const searchRecettes = (search) => {
-        let resultSearch = [];
-        for (let i = 0; i < arrayRecettes.length; i++) {
-            if (arrayRecettes[i].name.toLowerCase().includes(search)) {
-                resultSearch.push(arrayRecettes[i]);
-                continue;
+    
+     function searchRecettes(search) {
+        return arrayRecettes.filter((recipe) => {
+            if (recipe.name.toLowerCase().includes(search)) {
+                return true;
             } 
-            if (arrayRecettes[i].description.toLowerCase().includes(search)) {
-                resultSearch.push(arrayRecettes[i]);
-                continue;
+            if (recipe.description.toLowerCase().includes(search)) {
+                return true;
             }
+            return recipe.ingredients.some((ingredient)=> {
+                return ingredient.ingredient.toLowerCase().includes(search)
+            })
+        })
+        
+    }
 
-            for (let y = 0; y < arrayRecettes[i].ingredients.length; y++) {
-                if (arrayRecettes[i].ingredients[y].ingredient.toLowerCase().includes(search)) {
-                    resultSearch.push(arrayRecettes[i]);
-                    break;
-                }
-            }
-            
-        }
-        return resultSearch;
-    };
    
     /**
      * searchIngredient - filtre le tableau arrayIngredients en function de la valeur search passée
