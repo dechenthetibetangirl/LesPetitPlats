@@ -1,0 +1,18 @@
+{
+  "name": "lespetitsplats",
+  "version": "1.0.0",
+  "description": "Les petits plats",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node": "^16.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0"
+  }
+}
